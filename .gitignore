@@ -1,0 +1,40 @@
+# =========================
+# PLANPROCONS ERP
+# =========================
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Maven
+**/target/
+
+# Logs
+*.log
+logs/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Variables de entorno / secretos
+.env
+.env.*
+!.env.example
+
+# Configuración local sensible
+application-local.properties
+application-local.yml
+application-local.yaml
+
+# Credenciales
+*.pem
+*.key
+*.p12
+*.jks
+
+# Archivos temporales
+*.tmp
+*.temp
