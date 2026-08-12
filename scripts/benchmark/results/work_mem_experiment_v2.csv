@@ -1,0 +1,5 @@
+work_mem,execution_time_ms,large_sort_methods,temp_read_blocks,temp_written_blocks
+4MB,900.693,"external merge (3472kB disk); external merge (3336kB disk)",5570,2673
+8MB,756.897,"quicksort (5580kB memory); quicksort (6979kB memory)",4210,842
+16MB,434.756,"quicksort (5580kB memory); quicksort (6979kB memory)",0,0
+32MB,421.168,"quicksort (5580kB memory); quicksort (6979kB memory)",0,0

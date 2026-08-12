@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('baseline', 'optimized')]
+    [ValidateSet('baseline', 'optimized', 'medium', 'large')]
     [string]$Phase = 'baseline',
     [Parameter(Mandatory)]
     [int]$DatasetSize,

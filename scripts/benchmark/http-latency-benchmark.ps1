@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory)]
-    [ValidateSet('baseline_logging_on', 'baseline_logging_off', 'optimized_page_count')]
+    [ValidateSet('baseline_logging_on', 'baseline_logging_off', 'optimized_page_count', 'medium_optimized_v2', 'medium_optimized_v21')]
     [string]$Scenario,
     [Parameter(Mandatory)]
     [datetime]$From,

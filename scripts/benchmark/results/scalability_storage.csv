@@ -1,0 +1,4 @@
+scenario,dataset_size,table_bytes,index_bytes,total_relation_bytes,table_bytes_per_record,total_bytes_per_record
+small,10006,1581056,3399680,5013504,158.011,500.050
+medium,100000,15761408,32604160,48398336,157.614,483.983
+large,500000,78774272,157237248,236060672,157.549,472.121

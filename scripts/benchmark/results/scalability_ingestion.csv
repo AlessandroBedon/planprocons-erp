@@ -1,0 +1,3 @@
+transition,records_inserted,time_seconds,records_per_second
+small_to_medium,89994,21.150,4255.04
+medium_to_large,400000,85.676,4668.75

@@ -1,0 +1,7 @@
+﻿"case","url","hash","elements","totalElements","totalPages"
+"page0","/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&page=0&size=20","ec77de2e55fcd48fc8987417fdeea836d769a906d4a1535e6c318c2162bc2494","20","1520","76"
+"page1","/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&page=1&size=20","237ab4d6445315ab79b41db85a971510338f574304a9233b35ad49f8b53ee8eb","20","1520","76"
+"out_of_range","/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&page=999&size=20","23d0eb3979da51c5de9ad3a8eee9f58572c250c82588e7d4a1653ee4615a0b05","0","1520","76"
+"tipo","/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&tipo=ACCESO_TARDIO&page=0&size=20","163de70a4ea09d0d13263b166e121923575c38ae7122c1155bf9a993d2477d25","20","200","10"
+"persona","/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&personaId=56&page=0&size=20","0cc9713d82385f4593fc680cfa0ef497822308a402c48ba91f55d971d7978d1a","5","5","1"
+"empty_period","/api/analisis/anomalias?desde=2035-01-01&hasta=2035-01-02&page=0&size=20","04e6143ddb2920cc7171ffdaf329e03464c8f817f39a8cf72708099a67dc3121","0","0","0"

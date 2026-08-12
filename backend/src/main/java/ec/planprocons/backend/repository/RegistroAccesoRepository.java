@@ -22,13 +22,9 @@ public interface RegistroAccesoRepository extends JpaRepository<RegistroAcceso, 
                        ra.fecha_hora,
                        ra.tipo_evento,
                        ra.estado,
-                       p.codigo_biometrico,
-                       p.nombres,
-                       p.apellidos,
                        EXTRACT(HOUR FROM ra.fecha_hora)::integer AS hora,
                        EXTRACT(EPOCH FROM ra.fecha_hora::time) / 60.0 AS minuto_dia
                 FROM registros_acceso ra
-                INNER JOIN personas p ON p.id = ra.persona_id
                 WHERE ra.fecha_hora >= :inicio
                   AND ra.fecha_hora < :fin
             ),
@@ -70,22 +66,20 @@ public interface RegistroAccesoRepository extends JpaRepository<RegistroAcceso, 
                 GROUP BY persona_id
                 HAVING COUNT(*) >= 10
             ),
+            anomalias_horarias AS (
+                SELECT CASE
+                           WHEN b.hora BETWEEN 0 AND 4 THEN 'ACCESO_NOCTURNO'
+                           WHEN b.hora = 5 THEN 'ACCESO_TEMPRANO'
+                           WHEN b.hora >= 22 THEN 'ACCESO_TARDIO'
+                       END::varchar AS tipo,
+                       b.*
+                FROM base b
+                WHERE b.hora BETWEEN 0 AND 5
+                   OR b.hora >= 22
+            ),
             anomalias AS (
-                SELECT 'ACCESO_NOCTURNO'::varchar AS tipo, b.*
-                FROM base b
-                WHERE b.hora BETWEEN 0 AND 4
-
-                UNION ALL
-
-                SELECT 'ACCESO_TEMPRANO'::varchar AS tipo, b.*
-                FROM base b
-                WHERE b.hora = 5
-
-                UNION ALL
-
-                SELECT 'ACCESO_TARDIO'::varchar AS tipo, b.*
-                FROM base b
-                WHERE b.hora >= 22
+                SELECT ah.*
+                FROM anomalias_horarias ah
 
                 UNION ALL
 
@@ -109,9 +103,6 @@ public interface RegistroAccesoRepository extends JpaRepository<RegistroAcceso, 
                        ed.fecha_hora,
                        ed.tipo_evento,
                        ed.estado,
-                       ed.codigo_biometrico,
-                       ed.nombres,
-                       ed.apellidos,
                        ed.hora,
                        ed.minuto_dia
                 FROM entradas_diarias ed
@@ -140,25 +131,24 @@ public interface RegistroAccesoRepository extends JpaRepository<RegistroAcceso, 
             )
             SELECT resultado.tipo AS "tipo",
                    resultado.persona_id AS "personaId",
-                   resultado.codigo_biometrico AS "codigoPersona",
-                   resultado.nombres AS "nombres",
-                   resultado.apellidos AS "apellidos",
+                   persona.codigo_biometrico AS "codigoPersona",
+                   persona.nombres AS "nombres",
+                   persona.apellidos AS "apellidos",
                    resultado.id AS "registroAccesoId",
                    resultado.fecha_hora AS "fechaHora",
                    resultado.total_count AS "totalCount"
             FROM (
-                SELECT p.tipo, p.persona_id, p.codigo_biometrico,
-                       p.nombres, p.apellidos, p.id, p.fecha_hora, p.total_count
+                SELECT p.tipo, p.persona_id, p.id, p.fecha_hora, p.total_count
                 FROM pagina p
 
                 UNION ALL
 
-                SELECT NULL::varchar, NULL::bigint, NULL::varchar,
-                       NULL::varchar, NULL::varchar, NULL::bigint,
+                SELECT NULL::varchar, NULL::bigint, NULL::bigint,
                        NULL::timestamp, COUNT(*)
                 FROM filtradas
                 WHERE NOT EXISTS (SELECT 1 FROM pagina)
             ) resultado
+            LEFT JOIN personas persona ON persona.id = resultado.persona_id
             ORDER BY resultado.fecha_hora DESC NULLS LAST,
                      resultado.id DESC NULLS LAST,
                      resultado.tipo NULLS LAST
@@ -347,8 +337,11 @@ public interface RegistroAccesoRepository extends JpaRepository<RegistroAcceso, 
             @Param("desplazamiento") long desplazamiento
     );
 
-    @Query(value = "SELECT set_config('enable_nestloop', 'off', true)", nativeQuery = true)
-    String desactivarNestedLoopEnTransaccion();
+    @Query(value = """
+            SELECT set_config('enable_nestloop', 'off', true)
+                   || ':' || set_config('work_mem', '16MB', true)
+            """, nativeQuery = true)
+    String prepararTransaccionDeAnomalias();
 
     @Query(value = ANOMALIAS_CTE + """
             SELECT (SELECT COUNT(*) FROM base) AS "registrosAnalizados",

@@ -1,0 +1,15 @@
+metric,value
+records_before,100000
+synthetic_records_before,99994
+records_requested,400000
+records_inserted,400000
+records_final,500000
+synthetic_records_final,499994
+generator_time_ms,85676
+http_elapsed_ms,86063.846
+records_per_second,4668.75
+batch_size,5000
+seed,12345
+generation_from,2026-01-01
+generation_to,2026-07-31
+batch_id,3F8822F5AA32

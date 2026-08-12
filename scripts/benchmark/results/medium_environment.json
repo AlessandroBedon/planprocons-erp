@@ -1,0 +1,19 @@
+﻿{
+    "captured_at_utc":  "2026-08-12T19:04:02.7985003Z",
+    "benchmark_id":  "2263aa89-77e3-444b-8329-5555ada914ac",
+    "phase":  "medium",
+    "dataset_size":  100000,
+    "range":  {
+                  "hasta":  "2026-08-12",
+                  "desde":  "2026-01-01"
+              },
+    "warmups":  1,
+    "measured_runs":  7,
+    "base_url":  "http://localhost:8081",
+    "operating_system":  "Microsoft Windows NT 10.0.26200.0",
+    "architecture":  "X64",
+    "processor_identifier":  "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "logical_processors":  4,
+    "powershell":  "5.1.26100.6584",
+    "note":  "Mediciones posteriores al warm-up; incluyen HTTP, serializaciÃ³n y red local. No se limpiaron caches de PostgreSQL ni del sistema operativo."
+}

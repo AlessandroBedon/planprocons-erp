@@ -1,0 +1,229 @@
+﻿{
+    "content":  [
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-31T23:35:31",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  17707,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-31T23:35:31",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  7705,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000364",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-07-31T05:57:55",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Diego Ibarra Flores",
+                        "personaId":  366,
+                        "registroAccesoId":  11551,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000364",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-07-31T05:57:55",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Diego Ibarra Flores",
+                        "personaId":  366,
+                        "registroAccesoId":  1549,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000747",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-07-31T05:06:39",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Daniela DÃ­az LÃ³pez",
+                        "personaId":  1249,
+                        "registroAccesoId":  62107,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000929",
+                        "descripcion":  "Acceso registrado entre las 00:00 y las 04:59",
+                        "fechaHora":  "2026-07-31T04:45:43",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Elena BenÃ­tez Almeida",
+                        "personaId":  1431,
+                        "registroAccesoId":  74107,
+                        "tipo":  "ACCESO_NOCTURNO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000929",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-07-31T04:45:43",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Elena BenÃ­tez Almeida",
+                        "personaId":  1431,
+                        "registroAccesoId":  74107,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000601",
+                        "descripcion":  "Acceso registrado entre las 00:00 y las 04:59",
+                        "fechaHora":  "2026-07-31T02:38:56",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Andrea Flores Ibarra",
+                        "personaId":  1103,
+                        "registroAccesoId":  91507,
+                        "tipo":  "ACCESO_NOCTURNO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000838",
+                        "descripcion":  "Acceso registrado entre las 00:00 y las 04:59",
+                        "fechaHora":  "2026-07-30T03:29:10",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Miguel Cabrera Mendoza",
+                        "personaId":  1340,
+                        "registroAccesoId":  38507,
+                        "tipo":  "ACCESO_NOCTURNO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000838",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-07-30T03:29:10",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Miguel Cabrera Mendoza",
+                        "personaId":  1340,
+                        "registroAccesoId":  38507,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000208",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-29T22:45:32",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Diego Ibarra Flores",
+                        "personaId":  210,
+                        "registroAccesoId":  66707,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000305",
+                        "descripcion":  "Tercer o posterior evento dentro de una ventana de 5 minutos",
+                        "fechaHora":  "2026-07-29T17:16:32",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Elena BenÃ­tez Almeida",
+                        "personaId":  307,
+                        "registroAccesoId":  58451,
+                        "tipo":  "ACCESOS_REPETITIVOS"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000554",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-07-29T05:57:39",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Carlos LÃ³pez DÃ­az",
+                        "personaId":  1056,
+                        "registroAccesoId":  60552,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000164",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-07-29T05:11:26",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Javier Espinosa JimÃ©nez",
+                        "personaId":  166,
+                        "registroAccesoId":  53107,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000706",
+                        "descripcion":  "Acceso registrado entre las 00:00 y las 04:59",
+                        "fechaHora":  "2026-07-29T03:53:23",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Miguel Cabrera Mendoza",
+                        "personaId":  1208,
+                        "registroAccesoId":  92507,
+                        "tipo":  "ACCESO_NOCTURNO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000706",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-07-29T03:53:23",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Miguel Cabrera Mendoza",
+                        "personaId":  1208,
+                        "registroAccesoId":  92507,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000058",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-28T23:44:14",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Miguel Cabrera Mendoza",
+                        "personaId":  60,
+                        "registroAccesoId":  62207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000175",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-28T23:32:56",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Gabriela Mendoza Cabrera",
+                        "personaId":  177,
+                        "registroAccesoId":  98207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000110",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-28T22:37:21",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Carlos LÃ³pez DÃ­az",
+                        "personaId":  112,
+                        "registroAccesoId":  10207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000110",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-28T22:37:21",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Carlos LÃ³pez DÃ­az",
+                        "personaId":  112,
+                        "registroAccesoId":  205,
+                        "tipo":  "ACCESO_TARDIO"
+                    }
+                ],
+    "empty":  false,
+    "first":  true,
+    "last":  false,
+    "number":  0,
+    "numberOfElements":  20,
+    "pageable":  {
+                     "offset":  0,
+                     "pageNumber":  0,
+                     "pageSize":  20,
+                     "paged":  true,
+                     "sort":  {
+                                  "empty":  true,
+                                  "sorted":  false,
+                                  "unsorted":  true
+                              },
+                     "unpaged":  false
+                 },
+    "size":  20,
+    "sort":  {
+                 "empty":  true,
+                 "sorted":  false,
+                 "unsorted":  true
+             },
+    "totalElements":  1520,
+    "totalPages":  76
+}

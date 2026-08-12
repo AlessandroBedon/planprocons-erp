@@ -1,0 +1,229 @@
+﻿{
+    "content":  [
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-31T23:35:31",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  17707,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-31T23:35:31",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  7705,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000208",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-29T22:45:32",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Diego Ibarra Flores",
+                        "personaId":  210,
+                        "registroAccesoId":  66707,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000058",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-28T23:44:14",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Miguel Cabrera Mendoza",
+                        "personaId":  60,
+                        "registroAccesoId":  62207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000175",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-28T23:32:56",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Gabriela Mendoza Cabrera",
+                        "personaId":  177,
+                        "registroAccesoId":  98207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000110",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-28T22:37:21",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Carlos LÃ³pez DÃ­az",
+                        "personaId":  112,
+                        "registroAccesoId":  10207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000110",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-28T22:37:21",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Carlos LÃ³pez DÃ­az",
+                        "personaId":  112,
+                        "registroAccesoId":  205,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000308",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-28T22:04:32",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Javier Espinosa JimÃ©nez",
+                        "personaId":  310,
+                        "registroAccesoId":  38207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000777",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-27T23:59:31",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Laura JimÃ©nez Espinosa",
+                        "personaId":  1279,
+                        "registroAccesoId":  87707,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000526",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-27T23:22:04",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Miguel Cabrera Mendoza",
+                        "personaId":  1028,
+                        "registroAccesoId":  78707,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000735",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-26T22:47:48",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Daniela DÃ­az LÃ³pez",
+                        "personaId":  1237,
+                        "registroAccesoId":  39207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000247",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-25T22:12:56",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Gabriela Mendoza Cabrera",
+                        "personaId":  249,
+                        "registroAccesoId":  57207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000598",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-23T23:27:18",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Miguel Cabrera Mendoza",
+                        "personaId":  1100,
+                        "registroAccesoId":  86707,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000246",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-23T22:42:46",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  248,
+                        "registroAccesoId":  15207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000246",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-23T22:42:46",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  248,
+                        "registroAccesoId":  5205,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000580",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-22T23:16:02",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Diego Ibarra Flores",
+                        "personaId":  1082,
+                        "registroAccesoId":  69207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000630",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-22T22:12:53",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  1132,
+                        "registroAccesoId":  23207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000213",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-21T23:47:49",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Laura JimÃ©nez Espinosa",
+                        "personaId":  215,
+                        "registroAccesoId":  88707,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000610",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-19T22:15:25",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Miguel Cabrera Mendoza",
+                        "personaId":  1112,
+                        "registroAccesoId":  97207,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000824",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-17T23:19:28",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Javier Espinosa JimÃ©nez",
+                        "personaId":  1326,
+                        "registroAccesoId":  21707,
+                        "tipo":  "ACCESO_TARDIO"
+                    }
+                ],
+    "empty":  false,
+    "first":  true,
+    "last":  false,
+    "number":  0,
+    "numberOfElements":  20,
+    "pageable":  {
+                     "offset":  0,
+                     "pageNumber":  0,
+                     "pageSize":  20,
+                     "paged":  true,
+                     "sort":  {
+                                  "empty":  true,
+                                  "sorted":  false,
+                                  "unsorted":  true
+                              },
+                     "unpaged":  false
+                 },
+    "size":  20,
+    "sort":  {
+                 "empty":  true,
+                 "sorted":  false,
+                 "unsorted":  true
+             },
+    "totalElements":  200,
+    "totalPages":  10
+}

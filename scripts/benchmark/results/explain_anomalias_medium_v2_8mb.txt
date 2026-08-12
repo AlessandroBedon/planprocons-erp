@@ -1,0 +1,163 @@
+﻿BEGIN
+SET
+SET
+                                                                                                                                                                   QUERY PLAN                                                                                                                                                                   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=49497.03..49497.08 rows=21 width=98) (actual time=733.034..733.048 rows=21 loops=1)
+   Output: p.tipo, p.persona_id, persona.codigo_biometrico, persona.nombres, persona.apellidos, p.id, p.fecha_hora, p.total_count
+   Sort Key: p.fecha_hora DESC NULLS LAST, p.id DESC NULLS LAST, p.tipo
+   Sort Method: quicksort  Memory: 27kB
+   Buffers: shared hit=1947, temp read=4210 written=842
+   CTE base
+     ->  Seq Scan on public.registros_acceso ra  (cost=0.00..4674.00 rows=100000 width=77) (actual time=0.046..112.663 rows=100000 loops=1)
+           Output: ra.id, ra.persona_id, ra.fecha_hora, ra.tipo_evento, ra.estado, (EXTRACT(hour FROM ra.fecha_hora))::integer, (EXTRACT(epoch FROM (ra.fecha_hora)::time without time zone) / 60.0)
+           Filter: ((ra.fecha_hora >= '2026-01-01 00:00:00'::timestamp without time zone) AND (ra.fecha_hora < '2026-08-13 00:00:00'::timestamp without time zone))
+           Buffers: shared hit=1924
+   CTE entradas_diarias
+     ->  WindowAgg  (cost=10757.21..12098.74 rows=48783 width=188) (actual time=76.103..129.406 rows=48516 loops=1)
+           Output: b.id, b.persona_id, b.fecha_hora, b.tipo_evento, b.estado, b.hora, b.minuto_dia, row_number() OVER (?), ((b.fecha_hora)::date)
+           Buffers: shared hit=3, temp read=842
+           ->  Sort  (cost=10757.21..10879.17 rows=48783 width=180) (actual time=76.089..83.624 rows=48516 loops=1)
+                 Output: b.id, b.persona_id, b.fecha_hora, ((b.fecha_hora)::date), b.tipo_evento, b.estado, b.hora, b.minuto_dia
+                 Sort Key: b.persona_id, ((b.fecha_hora)::date), b.fecha_hora, b.id
+                 Sort Method: quicksort  Memory: 5580kB
+                 Buffers: shared hit=3, temp read=842
+                 ->  CTE Scan on base b  (cost=0.00..2621.96 rows=48783 width=180) (actual time=0.022..40.105 rows=48516 loops=1)
+                       Output: b.id, b.persona_id, b.fecha_hora, (b.fecha_hora)::date, b.tipo_evento, b.estado, b.hora, b.minuto_dia
+                       Filter: (((b.tipo_evento)::text = 'ENTRADA'::text) AND ((b.estado)::text = 'PERMITIDO'::text))
+                       Rows Removed by Filter: 51484
+                       Buffers: temp read=842
+   CTE filtradas
+     ->  Append  (cost=0.00..27152.79 rows=67772 width=208) (actual time=0.064..728.599 rows=1520 loops=1)
+           Buffers: shared hit=1927, temp read=4210 written=842
+           ->  CTE Scan on base b_1  (cost=0.00..3086.67 rows=33667 width=208) (actual time=0.063..194.303 rows=844 loops=1)
+                 Output: (CASE WHEN ((b_1.hora >= 0) AND (b_1.hora <= 4)) THEN 'ACCESO_NOCTURNO'::text WHEN (b_1.hora = 5) THEN 'ACCESO_TEMPRANO'::text WHEN (b_1.hora >= 22) THEN 'ACCESO_TARDIO'::text ELSE NULL::text END)::character varying, b_1.id, b_1.persona_id, b_1.fecha_hora, b_1.tipo_evento, b_1.estado, b_1.hora, b_1.minuto_dia
+                 Filter: (((b_1.hora >= 0) AND (b_1.hora <= 5)) OR (b_1.hora >= 22))
+                 Rows Removed by Filter: 99156
+                 Buffers: shared hit=1924, temp written=841
+           ->  Hash Join  (cost=13971.48..16679.81 rows=33333 width=208) (actual time=221.636..255.540 rows=304 loops=1)
+                 Output: 'ACCESOS_REPETITIVOS'::character varying, b_2.id, b_2.persona_id, b_2.fecha_hora, b_2.tipo_evento, b_2.estado, b_2.hora, b_2.minuto_dia
+                 Hash Cond: (b_2.id = c.id)
+                 Buffers: temp read=1684 written=1
+                 ->  CTE Scan on base b_2  (cost=0.00..2000.00 rows=100000 width=176) (actual time=0.095..20.038 rows=100000 loops=1)
+                       Output: b_2.id, b_2.persona_id, b_2.fecha_hora, b_2.tipo_evento, b_2.estado, b_2.hora, b_2.minuto_dia
+                       Buffers: temp read=843 written=1
+                 ->  Hash  (cost=13554.82..13554.82 rows=33333 width=8) (actual time=221.148..221.149 rows=304 loops=1)
+                       Output: c.id
+                       Buckets: 65536  Batches: 1  Memory Usage: 524kB
+                       Buffers: temp read=841
+                       ->  Subquery Scan on c  (cost=10304.84..13554.82 rows=33333 width=8) (actual time=90.314..220.988 rows=304 loops=1)
+                             Output: c.id
+                             Filter: (c.cantidad >= 3)
+                             Rows Removed by Filter: 99696
+                             Buffers: temp read=841
+                             ->  WindowAgg  (cost=10304.84..12304.82 rows=100000 width=32) (actual time=90.296..211.961 rows=100000 loops=1)
+                                   Output: base.id, count(*) OVER (?), base.fecha_hora, base.persona_id
+                                   Buffers: temp read=841
+                                   ->  Sort  (cost=10304.82..10554.82 rows=100000 width=24) (actual time=90.261..105.115 rows=100000 loops=1)
+                                         Output: base.fecha_hora, base.persona_id, base.id
+                                         Sort Key: base.persona_id, base.fecha_hora
+                                         Sort Method: quicksort  Memory: 6979kB
+                                         Buffers: temp read=841
+                                         ->  CTE Scan on base  (cost=0.00..2000.00 rows=100000 width=24) (actual time=0.001..27.774 rows=100000 loops=1)
+                                               Output: base.fecha_hora, base.persona_id, base.id
+                                               Buffers: temp read=841
+           ->  Hash Join  (cost=2462.46..4845.12 rows=766 width=208) (actual time=32.341..64.913 rows=80 loops=1)
+                 Output: 'RECHAZOS_REPETITIVOS'::character varying, b_3.id, b_3.persona_id, b_3.fecha_hora, b_3.tipo_evento, b_3.estado, b_3.hora, b_3.minuto_dia
+                 Hash Cond: (b_3.id = r.id)
+                 Buffers: temp read=1684
+                 ->  CTE Scan on base b_3  (cost=0.00..2000.00 rows=100000 width=176) (actual time=0.013..20.902 rows=100000 loops=1)
+                       Output: b_3.id, b_3.persona_id, b_3.fecha_hora, b_3.tipo_evento, b_3.estado, b_3.hora, b_3.minuto_dia
+                       Buffers: temp read=843
+                 ->  Hash  (cost=2452.89..2452.89 rows=766 width=8) (actual time=31.963..31.964 rows=80 loops=1)
+                       Output: r.id
+                       Buckets: 1024  Batches: 1  Memory Usage: 12kB
+                       Buffers: temp read=841
+                       ->  Subquery Scan on r  (cost=2378.26..2452.89 rows=766 width=8) (actual time=28.492..31.940 rows=80 loops=1)
+                             Output: r.id
+                             Filter: (r.cantidad >= 3)
+                             Rows Removed by Filter: 2214
+                             Buffers: temp read=841
+                             ->  WindowAgg  (cost=2378.26..2424.18 rows=2297 width=32) (actual time=28.481..31.691 rows=2294 loops=1)
+                                   Output: base_1.id, count(*) OVER (?), base_1.fecha_hora, base_1.persona_id
+                                   Buffers: temp read=841
+                                   ->  Sort  (cost=2378.24..2383.98 rows=2297 width=24) (actual time=28.465..28.645 rows=2294 loops=1)
+                                         Output: base_1.fecha_hora, base_1.persona_id, base_1.id
+                                         Sort Key: base_1.persona_id, base_1.fecha_hora
+                                         Sort Method: quicksort  Memory: 186kB
+                                         Buffers: temp read=841
+                                         ->  CTE Scan on base base_1  (cost=0.00..2250.00 rows=2297 width=24) (actual time=0.004..27.426 rows=2294 loops=1)
+                                               Output: base_1.fecha_hora, base_1.persona_id, base_1.id
+                                               Filter: ((base_1.estado)::text = 'RECHAZADO'::text)
+                                               Rows Removed by Filter: 97706
+                                               Buffers: temp read=841
+           ->  Merge Join  (cost=0.00..2202.33 rows=6 width=208) (actual time=76.704..213.571 rows=292 loops=1)
+                 Output: 'DESVIACION_HORARIO'::character varying, ed.id, ed.persona_id, ed.fecha_hora, ed.tipo_evento, ed.estado, ed.hora, ed.minuto_dia
+                 Inner Unique: true
+                 Merge Cond: (ed.persona_id = entradas_diarias.persona_id)
+                 Join Filter: (abs((ed.minuto_dia - (avg(entradas_diarias.minuto_dia)))) > '120'::numeric)
+                 Rows Removed by Join Filter: 40297
+                 Buffers: shared hit=3, temp read=842
+                 ->  CTE Scan on entradas_diarias ed  (cost=0.00..1097.62 rows=244 width=176) (actual time=76.107..89.194 rows=40592 loops=1)
+                       Output: ed.id, ed.persona_id, ed.fecha_hora, ed.tipo_evento, ed.estado, ed.hora, ed.minuto_dia, ed.posicion
+                       Filter: (ed.posicion = 1)
+                       Rows Removed by Filter: 7924
+                       Buffers: shared hit=3, temp read=842
+                 ->  Materialize  (cost=0.00..1103.60 rows=72 width=40) (actual time=0.138..102.766 rows=40289 loops=1)
+                       Output: entradas_diarias.persona_id, (avg(entradas_diarias.minuto_dia)), (NULL::bigint)
+                       ->  GroupAggregate  (cost=0.00..1102.70 rows=72 width=48) (actual time=0.135..100.226 rows=1000 loops=1)
+                             Output: entradas_diarias.persona_id, avg(entradas_diarias.minuto_dia), NULL::bigint
+                             Group Key: entradas_diarias.persona_id
+                             Filter: (count(*) >= 10)
+                             Rows Removed by Filter: 2
+                             ->  CTE Scan on entradas_diarias  (cost=0.00..1097.62 rows=244 width=40) (actual time=0.001..88.108 rows=40592 loops=1)
+                                   Output: entradas_diarias.id, entradas_diarias.persona_id, entradas_diarias.fecha_hora, entradas_diarias.tipo_evento, entradas_diarias.estado, entradas_diarias.hora, entradas_diarias.minuto_dia, entradas_diarias.posicion
+                                   Filter: (entradas_diarias.posicion = 1)
+                                   Rows Removed by Filter: 7924
+   CTE pagina
+     ->  Limit  (cost=4005.98..4006.03 rows=20 width=216) (actual time=732.361..732.365 rows=20 loops=1)
+           Output: f.tipo, f.id, f.persona_id, f.fecha_hora, f.tipo_evento, f.estado, f.hora, f.minuto_dia, (count(*) OVER (?))
+           Buffers: shared hit=1927, temp read=4210 written=842
+           ->  Sort  (cost=4005.98..4175.41 rows=67772 width=216) (actual time=732.359..732.362 rows=20 loops=1)
+                 Output: f.tipo, f.id, f.persona_id, f.fecha_hora, f.tipo_evento, f.estado, f.hora, f.minuto_dia, (count(*) OVER (?))
+                 Sort Key: f.fecha_hora DESC, f.id DESC, f.tipo
+                 Sort Method: top-N heapsort  Memory: 29kB
+                 Buffers: shared hit=1927, temp read=4210 written=842
+                 ->  WindowAgg  (cost=2202.56..2202.59 rows=67772 width=216) (actual time=730.644..731.527 rows=1520 loops=1)
+                       Output: f.tipo, f.id, f.persona_id, f.fecha_hora, f.tipo_evento, f.estado, f.hora, f.minuto_dia, count(*) OVER (?)
+                       Buffers: shared hit=1927, temp read=4210 written=842
+                       ->  CTE Scan on filtradas f  (cost=0.00..1355.44 rows=67772 width=208) (actual time=0.065..729.659 rows=1520 loops=1)
+                             Output: f.tipo, f.id, f.persona_id, f.fecha_hora, f.tipo_evento, f.estado, f.hora, f.minuto_dia
+                             Buffers: shared hit=1927, temp read=4210 written=842
+   ->  Hash Left Join  (cost=39.55..1565.01 rows=21 width=98) (actual time=732.963..732.991 rows=21 loops=1)
+         Output: p.tipo, p.persona_id, persona.codigo_biometrico, persona.nombres, persona.apellidos, p.id, p.fecha_hora, p.total_count
+         Inner Unique: true
+         Hash Cond: (p.persona_id = persona.id)
+         Buffers: shared hit=1944, temp read=4210 written=842
+         ->  Append  (cost=0.00..1525.41 rows=21 width=64) (actual time=732.366..732.387 rows=21 loops=1)
+               Buffers: shared hit=1927, temp read=4210 written=842
+               ->  CTE Scan on pagina p  (cost=0.00..0.40 rows=20 width=64) (actual time=732.364..732.376 rows=20 loops=1)
+                     Output: p.tipo, p.persona_id, p.id, p.fecha_hora, p.total_count
+                     Buffers: shared hit=1927, temp read=4210 written=842
+               ->  Aggregate  (cost=1524.89..1524.90 rows=1 width=64) (actual time=0.005..0.005 rows=1 loops=1)
+                     Output: NULL::character varying, NULL::bigint, NULL::bigint, NULL::timestamp without time zone, count(*)
+                     InitPlan 5
+                       ->  CTE Scan on pagina  (cost=0.00..0.40 rows=20 width=0) (actual time=0.001..0.001 rows=1 loops=1)
+                     ->  Result  (cost=0.00..1355.44 rows=67772 width=0) (actual time=0.002..0.002 rows=0 loops=1)
+                           One-Time Filter: (NOT (InitPlan 5).col1)
+                           ->  CTE Scan on filtradas  (cost=0.00..1355.44 rows=67772 width=0) (never executed)
+                                 Output: filtradas.tipo, filtradas.id, filtradas.persona_id, filtradas.fecha_hora, filtradas.tipo_evento, filtradas.estado, filtradas.hora, filtradas.minuto_dia
+         ->  Hash  (cost=27.02..27.02 rows=1002 width=42) (actual time=0.573..0.573 rows=1002 loops=1)
+               Output: persona.codigo_biometrico, persona.nombres, persona.apellidos, persona.id
+               Buckets: 1024  Batches: 1  Memory Usage: 87kB
+               Buffers: shared hit=17
+               ->  Seq Scan on public.personas persona  (cost=0.00..27.02 rows=1002 width=42) (actual time=0.050..0.354 rows=1002 loops=1)
+                     Output: persona.codigo_biometrico, persona.nombres, persona.apellidos, persona.id
+                     Buffers: shared hit=17
+ Planning:
+   Buffers: shared hit=394
+ Planning Time: 14.475 ms
+ Execution Time: 756.897 ms
+(155 filas)
+
+ROLLBACK

@@ -1,0 +1,79 @@
+﻿{
+    "content":  [
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-31T23:35:31",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  17707,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-31T23:35:31",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  7705,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Tercer o posterior evento dentro de una ventana de 5 minutos",
+                        "fechaHora":  "2026-02-23T10:02:11",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  90907,
+                        "tipo":  "ACCESOS_REPETITIVOS"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Tercer o posterior rechazo dentro de una ventana de 10 minutos",
+                        "fechaHora":  "2026-02-23T10:02:11",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  90907,
+                        "tipo":  "RECHAZOS_REPETITIVOS"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Tercer o posterior evento dentro de una ventana de 5 minutos",
+                        "fechaHora":  "2026-02-23T08:02:26",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  90807,
+                        "tipo":  "ACCESOS_REPETITIVOS"
+                    }
+                ],
+    "empty":  false,
+    "first":  true,
+    "last":  true,
+    "number":  0,
+    "numberOfElements":  5,
+    "pageable":  {
+                     "offset":  0,
+                     "pageNumber":  0,
+                     "pageSize":  20,
+                     "paged":  true,
+                     "sort":  {
+                                  "empty":  true,
+                                  "sorted":  false,
+                                  "unsorted":  true
+                              },
+                     "unpaged":  false
+                 },
+    "size":  20,
+    "sort":  {
+                 "empty":  true,
+                 "sorted":  false,
+                 "unsorted":  true
+             },
+    "totalElements":  5,
+    "totalPages":  1
+}

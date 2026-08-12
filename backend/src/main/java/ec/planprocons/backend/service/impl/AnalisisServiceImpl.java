@@ -117,7 +117,7 @@ public class AnalisisServiceImpl implements AnalisisService {
 
         String tipoConsulta = tipo != null ? tipo.name() : null;
         long desplazamiento = (long) pagina * tamano;
-        registroRepository.desactivarNestedLoopEnTransaccion();
+        prepararTransaccionDeAnomalias();
         List<AnomaliaProjection> filas = obtenerPaginaAnomalias(
                 rango,
                 tipoConsulta,
@@ -170,6 +170,7 @@ public class AnalisisServiceImpl implements AnalisisService {
     ) {
 
         Rango rango = validarRango(desde, hasta);
+        prepararTransaccionDeAnomalias();
         ResumenAnomaliasProjection resumen = registroRepository.resumirAnomalias(
                 rango.inicio(),
                 rango.fin()
@@ -187,6 +188,11 @@ public class AnalisisServiceImpl implements AnalisisService {
                 .rechazosRepetitivos(aLong(resumen.getRechazosRepetitivos()))
                 .desviacionesHorario(aLong(resumen.getDesviacionesHorario()))
                 .build();
+    }
+
+    private void prepararTransaccionDeAnomalias() {
+
+        registroRepository.prepararTransaccionDeAnomalias();
     }
 
     private AnomaliaResponse aResponse(AnomaliaProjection fila) {
