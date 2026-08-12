@@ -1,0 +1,7 @@
+metric,baseline,optimized,improvement_percent
+http_average_ms,117.895,73.048,38.039
+http_min_ms,113.913,68.798,39.605
+http_median_ms,117.548,71.837,38.887
+http_max_ms,121.931,79.684,34.649
+sql_execution_ms,252.641,82.248,67.444
+analytic_queries_per_request,2,1,50.000

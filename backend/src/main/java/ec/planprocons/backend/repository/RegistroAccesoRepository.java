@@ -121,6 +121,49 @@ public interface RegistroAccesoRepository extends JpaRepository<RegistroAcceso, 
             )
             """;
 
+    String ANOMALIAS_PAGINA_INICIO = """
+            , filtradas AS MATERIALIZED (
+                SELECT a.*
+                FROM anomalias a
+                WHERE
+            """;
+
+    String ANOMALIAS_PAGINA_FIN = """
+            ), numeradas AS (
+                SELECT f.*, COUNT(*) OVER () AS total_count
+                FROM filtradas f
+            ), pagina AS MATERIALIZED (
+                SELECT n.*
+                FROM numeradas n
+                ORDER BY n.fecha_hora DESC, n.id DESC, n.tipo
+                LIMIT :limite OFFSET :desplazamiento
+            )
+            SELECT resultado.tipo AS "tipo",
+                   resultado.persona_id AS "personaId",
+                   resultado.codigo_biometrico AS "codigoPersona",
+                   resultado.nombres AS "nombres",
+                   resultado.apellidos AS "apellidos",
+                   resultado.id AS "registroAccesoId",
+                   resultado.fecha_hora AS "fechaHora",
+                   resultado.total_count AS "totalCount"
+            FROM (
+                SELECT p.tipo, p.persona_id, p.codigo_biometrico,
+                       p.nombres, p.apellidos, p.id, p.fecha_hora, p.total_count
+                FROM pagina p
+
+                UNION ALL
+
+                SELECT NULL::varchar, NULL::bigint, NULL::varchar,
+                       NULL::varchar, NULL::varchar, NULL::bigint,
+                       NULL::timestamp, COUNT(*)
+                FROM filtradas
+                WHERE NOT EXISTS (SELECT 1 FROM pagina)
+            ) resultado
+            ORDER BY resultado.fecha_hora DESC NULLS LAST,
+                     resultado.id DESC NULLS LAST,
+                     resultado.tipo NULLS LAST
+            """;
+
     boolean existsByDispositivoIdAndCodigoEvento(Long dispositivoId, String codigoEvento);
 
     @Query(value = """
@@ -263,21 +306,39 @@ public interface RegistroAccesoRepository extends JpaRepository<RegistroAcceso, 
             @Param("fin") LocalDateTime fin
     );
 
-    @Query(value = ANOMALIAS_CTE + """
-            SELECT a.tipo AS "tipo",
-                   a.persona_id AS "personaId",
-                   a.codigo_biometrico AS "codigoPersona",
-                   a.nombres AS "nombres",
-                   a.apellidos AS "apellidos",
-                   a.id AS "registroAccesoId",
-                   a.fecha_hora AS "fechaHora"
-            FROM anomalias a
-            WHERE (CAST(:tipo AS varchar) IS NULL OR a.tipo = CAST(:tipo AS varchar))
-              AND (CAST(:personaId AS bigint) IS NULL OR a.persona_id = CAST(:personaId AS bigint))
-            ORDER BY a.fecha_hora DESC, a.id DESC, a.tipo
-            LIMIT :limite OFFSET :desplazamiento
-            """, nativeQuery = true)
-    List<AnomaliaProjection> detectarAnomalias(
+    @Query(value = ANOMALIAS_CTE + ANOMALIAS_PAGINA_INICIO
+            + " TRUE " + ANOMALIAS_PAGINA_FIN, nativeQuery = true)
+    List<AnomaliaProjection> obtenerPaginaAnomaliasSinFiltros(
+            @Param("inicio") LocalDateTime inicio,
+            @Param("fin") LocalDateTime fin,
+            @Param("limite") int limite,
+            @Param("desplazamiento") long desplazamiento
+    );
+
+    @Query(value = ANOMALIAS_CTE + ANOMALIAS_PAGINA_INICIO
+            + " a.tipo = CAST(:tipo AS varchar) " + ANOMALIAS_PAGINA_FIN, nativeQuery = true)
+    List<AnomaliaProjection> obtenerPaginaAnomaliasPorTipo(
+            @Param("inicio") LocalDateTime inicio,
+            @Param("fin") LocalDateTime fin,
+            @Param("tipo") String tipo,
+            @Param("limite") int limite,
+            @Param("desplazamiento") long desplazamiento
+    );
+
+    @Query(value = ANOMALIAS_CTE + ANOMALIAS_PAGINA_INICIO
+            + " a.persona_id = :personaId " + ANOMALIAS_PAGINA_FIN, nativeQuery = true)
+    List<AnomaliaProjection> obtenerPaginaAnomaliasPorPersona(
+            @Param("inicio") LocalDateTime inicio,
+            @Param("fin") LocalDateTime fin,
+            @Param("personaId") Long personaId,
+            @Param("limite") int limite,
+            @Param("desplazamiento") long desplazamiento
+    );
+
+    @Query(value = ANOMALIAS_CTE + ANOMALIAS_PAGINA_INICIO
+            + " a.tipo = CAST(:tipo AS varchar) AND a.persona_id = :personaId "
+            + ANOMALIAS_PAGINA_FIN, nativeQuery = true)
+    List<AnomaliaProjection> obtenerPaginaAnomaliasPorTipoYPersona(
             @Param("inicio") LocalDateTime inicio,
             @Param("fin") LocalDateTime fin,
             @Param("tipo") String tipo,
@@ -286,18 +347,8 @@ public interface RegistroAccesoRepository extends JpaRepository<RegistroAcceso, 
             @Param("desplazamiento") long desplazamiento
     );
 
-    @Query(value = ANOMALIAS_CTE + """
-            SELECT COUNT(*)
-            FROM anomalias a
-            WHERE (CAST(:tipo AS varchar) IS NULL OR a.tipo = CAST(:tipo AS varchar))
-              AND (CAST(:personaId AS bigint) IS NULL OR a.persona_id = CAST(:personaId AS bigint))
-            """, nativeQuery = true)
-    long contarAnomalias(
-            @Param("inicio") LocalDateTime inicio,
-            @Param("fin") LocalDateTime fin,
-            @Param("tipo") String tipo,
-            @Param("personaId") Long personaId
-    );
+    @Query(value = "SELECT set_config('enable_nestloop', 'off', true)", nativeQuery = true)
+    String desactivarNestedLoopEnTransaccion();
 
     @Query(value = ANOMALIAS_CTE + """
             SELECT (SELECT COUNT(*) FROM base) AS "registrosAnalizados",

@@ -17,4 +17,6 @@ public interface AnomaliaProjection {
     Long getRegistroAccesoId();
 
     LocalDateTime getFechaHora();
+
+    Long getTotalCount();
 }

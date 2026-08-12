@@ -117,25 +117,49 @@ public class AnalisisServiceImpl implements AnalisisService {
 
         String tipoConsulta = tipo != null ? tipo.name() : null;
         long desplazamiento = (long) pagina * tamano;
-        List<AnomaliaResponse> contenido = registroRepository.detectarAnomalias(
-                        rango.inicio(),
-                        rango.fin(),
-                        tipoConsulta,
-                        personaId,
-                        tamano,
-                        desplazamiento
-                )
-                .stream()
+        registroRepository.desactivarNestedLoopEnTransaccion();
+        List<AnomaliaProjection> filas = obtenerPaginaAnomalias(
+                rango,
+                tipoConsulta,
+                personaId,
+                tamano,
+                desplazamiento
+        );
+        long total = filas.isEmpty() ? 0L : aLong(filas.getFirst().getTotalCount());
+        List<AnomaliaResponse> contenido = filas.stream()
+                .filter(fila -> fila.getRegistroAccesoId() != null)
                 .map(this::aResponse)
                 .toList();
-        long total = registroRepository.contarAnomalias(
-                rango.inicio(),
-                rango.fin(),
-                tipoConsulta,
-                personaId
-        );
 
         return new PageImpl<>(contenido, PageRequest.of(pagina, tamano), total);
+    }
+
+    private List<AnomaliaProjection> obtenerPaginaAnomalias(
+            Rango rango,
+            String tipo,
+            Long personaId,
+            int tamano,
+            long desplazamiento
+    ) {
+
+        if (tipo != null && personaId != null) {
+            return registroRepository.obtenerPaginaAnomaliasPorTipoYPersona(
+                    rango.inicio(), rango.fin(), tipo, personaId, tamano, desplazamiento
+            );
+        }
+        if (tipo != null) {
+            return registroRepository.obtenerPaginaAnomaliasPorTipo(
+                    rango.inicio(), rango.fin(), tipo, tamano, desplazamiento
+            );
+        }
+        if (personaId != null) {
+            return registroRepository.obtenerPaginaAnomaliasPorPersona(
+                    rango.inicio(), rango.fin(), personaId, tamano, desplazamiento
+            );
+        }
+        return registroRepository.obtenerPaginaAnomaliasSinFiltros(
+                rango.inicio(), rango.fin(), tamano, desplazamiento
+        );
     }
 
     @Override

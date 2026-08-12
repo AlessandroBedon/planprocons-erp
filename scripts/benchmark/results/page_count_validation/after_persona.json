@@ -1,0 +1,39 @@
+﻿{
+    "content":  [
+                    {
+                        "codigoPersona":  "SYN-P-000054",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-07-31T23:35:31",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  56,
+                        "registroAccesoId":  7705,
+                        "tipo":  "ACCESO_TARDIO"
+                    }
+                ],
+    "empty":  false,
+    "first":  true,
+    "last":  true,
+    "number":  0,
+    "numberOfElements":  1,
+    "pageable":  {
+                     "offset":  0,
+                     "pageNumber":  0,
+                     "pageSize":  20,
+                     "paged":  true,
+                     "sort":  {
+                                  "empty":  true,
+                                  "sorted":  false,
+                                  "unsorted":  true
+                              },
+                     "unpaged":  false
+                 },
+    "size":  20,
+    "sort":  {
+                 "empty":  true,
+                 "sorted":  false,
+                 "unsorted":  true
+             },
+    "totalElements":  1,
+    "totalPages":  1
+}

@@ -1,0 +1,229 @@
+﻿{
+    "content":  [
+                    {
+                        "codigoPersona":  "SYN-P-000220",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-07-06T05:49:00",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Diego Ibarra Flores",
+                        "personaId":  222,
+                        "registroAccesoId":  9824,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000220",
+                        "descripcion":  "Acceso registrado entre las 22:00 y las 23:59",
+                        "fechaHora":  "2026-06-20T22:18:25",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Diego Ibarra Flores",
+                        "personaId":  222,
+                        "registroAccesoId":  3205,
+                        "tipo":  "ACCESO_TARDIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000220",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-06-20T22:18:25",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Diego Ibarra Flores",
+                        "personaId":  222,
+                        "registroAccesoId":  3205,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000391",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-06-17T05:57:41",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Gabriela Mendoza Cabrera",
+                        "personaId":  393,
+                        "registroAccesoId":  154,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000110",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-06-15T07:19:18",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Carlos LÃ³pez DÃ­az",
+                        "personaId":  112,
+                        "registroAccesoId":  5186,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000060",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-06-15T07:08:09",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Santiago Almeida BenÃ­tez",
+                        "personaId":  62,
+                        "registroAccesoId":  2815,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000220",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-06-13T06:17:55",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Diego Ibarra Flores",
+                        "personaId":  222,
+                        "registroAccesoId":  1737,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000491",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-06-13T05:59:36",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Paola Herrera GarcÃ­a",
+                        "personaId":  493,
+                        "registroAccesoId":  110,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000456",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-06-12T05:54:48",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Santiago Almeida BenÃ­tez",
+                        "personaId":  458,
+                        "registroAccesoId":  7830,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000359",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-06-12T05:15:58",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Paola Herrera GarcÃ­a",
+                        "personaId":  361,
+                        "registroAccesoId":  5105,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000359",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-06-12T05:15:58",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Paola Herrera GarcÃ­a",
+                        "personaId":  361,
+                        "registroAccesoId":  5105,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000151",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-06-11T05:58:30",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Gabriela Mendoza Cabrera",
+                        "personaId":  153,
+                        "registroAccesoId":  82,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000144",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-06-01T05:49:57",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Santiago Almeida BenÃ­tez",
+                        "personaId":  146,
+                        "registroAccesoId":  261,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000200",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-05-29T10:09:32",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Javier Espinosa JimÃ©nez",
+                        "personaId":  202,
+                        "registroAccesoId":  9924,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000260",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-05-29T05:42:51",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Javier Espinosa JimÃ©nez",
+                        "personaId":  262,
+                        "registroAccesoId":  159,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000162",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-05-25T05:59:44",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Fernando GarcÃ­a Herrera",
+                        "personaId":  164,
+                        "registroAccesoId":  58,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000167",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-05-22T05:25:26",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Paola Herrera GarcÃ­a",
+                        "personaId":  169,
+                        "registroAccesoId":  4605,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000120",
+                        "descripcion":  "Acceso registrado entre las 00:00 y las 04:59",
+                        "fechaHora":  "2026-05-20T04:39:00",
+                        "nivel":  "ALTO",
+                        "nombrePersona":  "Santiago Almeida BenÃ­tez",
+                        "personaId":  122,
+                        "registroAccesoId":  1105,
+                        "tipo":  "ACCESO_NOCTURNO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000120",
+                        "descripcion":  "Primera entrada diaria desviada mÃ¡s de 120 minutos del horario habitual",
+                        "fechaHora":  "2026-05-20T04:39:00",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Santiago Almeida BenÃ­tez",
+                        "personaId":  122,
+                        "registroAccesoId":  1105,
+                        "tipo":  "DESVIACION_HORARIO"
+                    },
+                    {
+                        "codigoPersona":  "SYN-P-000023",
+                        "descripcion":  "Acceso registrado entre las 05:00 y las 05:59",
+                        "fechaHora":  "2026-05-19T05:45:14",
+                        "nivel":  "MEDIO",
+                        "nombrePersona":  "Paola Herrera GarcÃ­a",
+                        "personaId":  25,
+                        "registroAccesoId":  6028,
+                        "tipo":  "ACCESO_TEMPRANO"
+                    }
+                ],
+    "empty":  false,
+    "first":  false,
+    "last":  false,
+    "number":  1,
+    "numberOfElements":  20,
+    "pageable":  {
+                     "offset":  20,
+                     "pageNumber":  1,
+                     "pageSize":  20,
+                     "paged":  true,
+                     "sort":  {
+                                  "empty":  true,
+                                  "sorted":  false,
+                                  "unsorted":  true
+                              },
+                     "unpaged":  false
+                 },
+    "size":  20,
+    "sort":  {
+                 "empty":  true,
+                 "sorted":  false,
+                 "unsorted":  true
+             },
+    "totalElements":  140,
+    "totalPages":  7
+}

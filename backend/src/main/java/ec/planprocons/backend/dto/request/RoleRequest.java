@@ -20,5 +20,4 @@ public class RoleRequest {
 
     private Set<Long> permissionIds = new HashSet<>();
 
-
 }

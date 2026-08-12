@@ -1,0 +1,5 @@
+﻿"scenario","endpoint","runs","sql_content_avg_ms","sql_count_avg_ms","mapping_avg_ms","dto_avg_ms","service_avg_ms","controller_avg_ms","post_controller_serialization_avg_ms","backend_total_avg_ms","client_transport_avg_ms","http_total_avg_ms","sql_queries","payload_bytes","items","total_elements"
+"baseline_logging_on","anomalias_resumen","7","44.580","0.000","0.000","0.250","44.838","46.599","1.929","48.528","26.828","75.356","1","354","1","140"
+"baseline_logging_on","anomalias_pagina","7","58.763","56.793","1.908","0.017","117.492","119.367","3.536","122.903","28.816","151.719","2","5651","20","140"
+"baseline_logging_off","anomalias_resumen","7","43.382","0.000","0.000","0.234","43.624","45.445","2.005","47.450","26.890","74.340","1","354","1","140"
+"baseline_logging_off","anomalias_pagina","7","43.914","42.987","1.336","0.015","88.263","90.030","2.943","92.973","24.922","117.895","2","5651","20","140"

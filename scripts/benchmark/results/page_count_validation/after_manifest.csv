@@ -1,0 +1,7 @@
+﻿"case","url","hash","matchesBefore","elements","totalElements","totalPages","size","number"
+"page0","http://localhost:8081/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&page=0&size=20","6917d5e7e11c55af726cc1039465182e1cfd45b891c7e1f91950c4406b17383a","True","20","140","7","20","0"
+"page1","http://localhost:8081/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&page=1&size=20","b007fea7b5f93ecad4a00d8440df969d167f2a39d25a8874c2834537422856fb","True","20","140","7","20","1"
+"out_of_range","http://localhost:8081/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&page=999&size=20","6723777031f6e04454fb54349b826968ce671a7777bc1a7243d2b0d012f77a4b","True","0","140","7","20","999"
+"tipo","http://localhost:8081/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&tipo=ACCESO_TARDIO&page=0&size=20","4d7eba83d098101bbc93ffae1c89a063858b53609f914907f54ff3812cdd4925","True","20","20","1","20","0"
+"persona","http://localhost:8081/api/analisis/anomalias?desde=2026-01-01&hasta=2026-08-12&personaId=56&page=0&size=20","3ebc525632aea5be4ea37040c81cbe5399f144725c404bcd4a7bef8f0860b92d","True","1","1","1","20","0"
+"empty_period","http://localhost:8081/api/analisis/anomalias?desde=2035-01-01&hasta=2035-01-02&page=0&size=20","04e6143ddb2920cc7171ffdaf329e03464c8f817f39a8cf72708099a67dc3121","True","0","0","0","20","0"

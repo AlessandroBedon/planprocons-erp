@@ -1,0 +1,8 @@
+﻿"scenario","endpoint","run","http_ms","status","payload_bytes","items","total_elements"
+"optimized_page_count","anomalias_pagina","1","71.997","200","5651","20","140"
+"optimized_page_count","anomalias_pagina","2","79.684","200","5651","20","140"
+"optimized_page_count","anomalias_pagina","3","76.679","200","5651","20","140"
+"optimized_page_count","anomalias_pagina","4","71.696","200","5651","20","140"
+"optimized_page_count","anomalias_pagina","5","68.798","200","5651","20","140"
+"optimized_page_count","anomalias_pagina","6","71.837","200","5651","20","140"
+"optimized_page_count","anomalias_pagina","7","70.648","200","5651","20","140"

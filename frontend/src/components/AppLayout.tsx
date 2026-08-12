@@ -40,7 +40,7 @@ export function AppLayout() {
       <aside className={`sidebar ${mobileOpen ? "mobile-open" : ""}`}>
         <div className="brand-block">
           <div className="brand-mark"><ShieldCheck size={23} /></div>
-          {!collapsed && <div><strong>PlanProcons</strong><span>Access Intelligence</span></div>}
+          {!collapsed && <div><strong>Acces IQ</strong><span>Desarrollo de Software</span></div>}
           <button className="mobile-close" onClick={closeMobile} aria-label="Cerrar menú"><X size={20} /></button>
         </div>
 
@@ -70,7 +70,7 @@ export function AppLayout() {
         <header className="topbar">
           <div className="topbar-left">
             <button className="mobile-menu" onClick={() => setMobileOpen(true)} aria-label="Abrir menú"><Menu size={21} /></button>
-            <div><span className="eyebrow">PLANPROCONS ERP</span><h2>{titles[location.pathname] || "Access Intelligence"}</h2></div>
+            <div><span className="eyebrow">ACCESS IQ</span><h2>{titles[location.pathname] || "Access Intelligence"}</h2></div>
           </div>
           <div className="system-state"><span className="status-dot" /><div><strong>Sistema operativo</strong><span>Servicios disponibles</span></div></div>
         </header>
