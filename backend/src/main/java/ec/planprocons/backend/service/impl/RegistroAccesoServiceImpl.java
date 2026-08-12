@@ -12,7 +12,9 @@ import ec.planprocons.backend.repository.DispositivoRepository;
 import ec.planprocons.backend.repository.PersonaRepository;
 import ec.planprocons.backend.repository.RegistroAccesoRepository;
 import ec.planprocons.backend.service.interfaces.RegistroAccesoService;
+import ec.planprocons.backend.service.event.AccessCreatedEvent;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,7 @@ public class RegistroAccesoServiceImpl implements RegistroAccesoService {
     private final PersonaRepository personaRepository;
     private final DispositivoRepository dispositivoRepository;
     private final RegistroAccesoMapper mapper;
+    private final ApplicationEventPublisher eventPublisher;
 
     @Override
     @Transactional
@@ -70,7 +73,9 @@ public class RegistroAccesoServiceImpl implements RegistroAccesoService {
                 LocalDateTime.now()
         );
 
-        return mapper.toResponse(repository.save(registro));
+        RegistroAccesoResponse response = mapper.toResponse(repository.save(registro));
+        eventPublisher.publishEvent(new AccessCreatedEvent(response));
+        return response;
     }
 
     @Override

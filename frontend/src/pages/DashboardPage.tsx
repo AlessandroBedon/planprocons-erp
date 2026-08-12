@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Activity, ArrowDownToLine, ArrowUpFromLine, Clock3, ShieldCheck, UsersRound } from "lucide-react";
 import { Link } from "react-router-dom";
 import { accessApi, analysisApi, dashboardApi } from "../api";
@@ -6,12 +6,14 @@ import { AccessByDayChart, AccessByHourChart } from "../components/Charts";
 import { EmptyState, ErrorState, LoadingState, MetricCard, PageHeader, StatusBadge } from "../components/UI";
 import type { AccessByDay, AccessByHour, AccessRecord, AnomalySummary, DashboardSummary, FrequentPerson, PatternSummary } from "../types";
 import { daysBefore, errorMessage, formatHour, formatNumber, formatTime, today } from "../utils";
+import { useAccessStream } from "../hooks/useAccessStream";
 
 export function DashboardPage() {
   const [date, setDate] = useState(today());
   const [data, setData] = useState<{ summary: DashboardSummary; hours: AccessByHour[]; days: AccessByDay[]; frequent: FrequentPerson[]; recent: AccessRecord[]; anomalies: AnomalySummary; patterns: PatternSummary } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const refreshTimer = useRef<number | undefined>(undefined);
 
   const load = useCallback(async () => {
     setLoading(true); setError("");
@@ -26,6 +28,29 @@ export function DashboardPage() {
   }, [date]);
 
   useEffect(() => { void load(); }, [load]);
+
+  const refreshRealtime = useCallback(async () => {
+    try {
+      const [summary, hours, recent] = await Promise.all([
+        dashboardApi.summary(date), dashboardApi.byHour(date), accessApi.list(0, 10),
+      ]);
+      setData((current) => current ? { ...current, summary, hours, recent: recent.content } : current);
+    } catch {
+      // La próxima marcación o recarga manual volverá a intentar la actualización.
+    }
+  }, [date]);
+
+  useAccessStream(useCallback(() => {
+    if (refreshTimer.current !== undefined) window.clearTimeout(refreshTimer.current);
+    refreshTimer.current = window.setTimeout(() => {
+      refreshTimer.current = undefined;
+      void refreshRealtime();
+    }, 1_500);
+  }, [refreshRealtime]));
+
+  useEffect(() => () => {
+    if (refreshTimer.current !== undefined) window.clearTimeout(refreshTimer.current);
+  }, []);
 
   if (loading) return <LoadingState label="Preparando el centro de control…" />;
   if (error || !data) return <ErrorState message={error || "No se encontró información."} onRetry={load} />;

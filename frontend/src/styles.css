@@ -153,6 +153,14 @@ tbody tr:hover { background: #fafcfd; }
 .spin { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .operational-pill { padding: 9px 12px; display: flex; align-items: center; gap: 9px; border: 1px solid #dce5e1; border-radius: 9px; color: #3e6658; background: #f7fbf9; font-size: 11px; }
+.operational-pill strong, .operational-pill small { display: block; }
+.operational-pill strong { font-family: inherit; font-size: 11px; }
+.operational-pill small { margin-top: 2px; color: #7b8996; font-size: 8px; }
+.stream-reconnecting { border-color: #ead9bd; color: #91631f; background: #fffbf3; }
+.stream-reconnecting .status-dot { background: #d99a3c; box-shadow: 0 0 0 4px rgba(217,154,60,.13); animation: pulse 1.4s ease-in-out infinite; }
+.stream-disconnected { border-color: #ebd0d3; color: #a3484e; background: #fff8f8; }
+.stream-disconnected .status-dot { background: #bd565c; box-shadow: 0 0 0 4px rgba(189,86,92,.12); }
+@keyframes pulse { 50% { opacity: .45; } }
 .search-box { width: min(320px, 35vw); height: 40px; padding: 0 11px; display: flex; align-items: center; gap: 8px; border: 1px solid #d8e0e8; border-radius: 9px; color: #7f8b99; background: white; }
 .search-box input { width: 100%; height: 100%; padding: 0; border: 0; box-shadow: none; }
 
